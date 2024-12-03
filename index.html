@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <script defer src="matrices.js"></script>
+  <script defer src="dot-data.js"></script>
+  <script defer src="logic.js"></script>
+  <title>Spotty Dotty</title>
+</head>
+
+<body>
+  <div class="controls">
+    <div class="num-inputs">
+      <div><span>Model:</span><span></span>
+        <select name="model" id="model">
+          <option value="sphere">Sphere</option>
+          <option value="cube">Cube</option>
+          <option value="bunny">Bunny</option>
+          <option value="dragon">Dragon</option>
+        </select>
+      </div>
+      <div><span>Rotation speed:</span><span></span><input type="number" value="2"></div>
+      <div><span>Scale factor: </span><span></span><input type="number" value="10"></div>
+      <div><span>Dot size: </span><span></span><input type="number" value="30"></div>
+    </div>
+    <div class="num-points"><span>Number of points: </span><br>
+      <span>
+        <input type="number" value="7500">
+        <span class="can-hide"> / <input readonly> = <input type="number"></span>
+      </span>
+    </div>
+    <div>
+      <input type="checkbox" id="color" name="color" checked>
+      <label for="color"> Add color gradient</label>
+    </div>
+    <div class="user-message">
+      Click on canvas to focus
+      <div></div>
+      Press escape to defocus
+      <div></div>
+      Mouse to look around
+      <div></div>
+      WASD to move in plane
+      <div></div>
+      Space or Shift+Space<br>to move up or down
+    </div>
+  </div>
+  <canvas></canvas>
+</body>
+
+</html>
