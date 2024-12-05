@@ -117,7 +117,6 @@ function drawDot(dot) {
 	let [x, y, z] = dot;
 
 	if (y > 0.001) {
-		dist = Math.hypot(x, y + 0.5, z);
 		x /= y;
 		z /= y;
 
@@ -133,7 +132,7 @@ function drawDot(dot) {
 				document.querySelector(".num-inputs > div:nth-child(4) > input").value,
 			) || 0;
 
-		ctx.ellipse(x, z, dotSize / dist, dotSize / dist, 0, 0, 2 * Math.PI);
+		ctx.ellipse(x, z, dotSize / y, dotSize / y, 0, 0, 2 * Math.PI);
 		ctx.fill();
 	}
 }
@@ -167,8 +166,8 @@ window.addEventListener("keyup", (e) => {
 });
 
 function updateCameraAngles(e) {
-	cameraData.dir -= e.movementX / 600;
-	cameraData.tilt -= e.movementY / 600;
+	cameraData.dir -= e.movementX / 750;
+	cameraData.tilt -= e.movementY / 750;
 	cameraData.tilt = Math.min(Math.PI / 2, cameraData.tilt);
 	cameraData.tilt = Math.max(-Math.PI / 2, cameraData.tilt);
 }
