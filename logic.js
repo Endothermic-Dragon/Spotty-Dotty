@@ -117,13 +117,13 @@ function drawDot(dot) {
 	let [x, y, z] = dot;
 
 	if (y > 0.001) {
+		const dist = Math.hypot(x, y, z);
 		x /= y;
 		z /= y;
 
 		// Transform into canvas's coordinate system
-		x *= 1600;
-		x += canvas.width / 2;
-		z = canvas.height / 2 - z * 1600;
+		x = canvas.width / 2 + x * 1440;
+		z = canvas.height / 2 - z * 1440;
 
 		ctx.beginPath();
 
@@ -132,7 +132,7 @@ function drawDot(dot) {
 				document.querySelector(".num-inputs > div:nth-child(4) > input").value,
 			) || 0;
 
-		ctx.ellipse(x, z, dotSize / y, dotSize / y, 0, 0, 2 * Math.PI);
+		ctx.ellipse(x, z, dotSize / dist, dotSize / dist, 0, 0, 2 * Math.PI);
 		ctx.fill();
 	}
 }
@@ -166,8 +166,8 @@ window.addEventListener("keyup", (e) => {
 });
 
 function updateCameraAngles(e) {
-	cameraData.dir -= e.movementX / 750;
-	cameraData.tilt -= e.movementY / 750;
+	cameraData.dir -= e.movementX / 3000;
+	cameraData.tilt -= e.movementY / 3000;
 	cameraData.tilt = Math.min(Math.PI / 2, cameraData.tilt);
 	cameraData.tilt = Math.max(-Math.PI / 2, cameraData.tilt);
 }
@@ -191,7 +191,7 @@ let lastTime = 0;
 function drawLoop(time) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	const dt = (time - lastTime) / 1500;
+	const dt = (time - lastTime) / 5000;
 	lastTime = time;
 
 	cameraData.disp[0] +=

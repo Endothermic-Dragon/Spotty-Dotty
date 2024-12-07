@@ -19,7 +19,7 @@ function shuffleArray(array) {
 function generateSphere(numPoints) {
 	dotData.sphere = [];
 	for (let i = 0; i < numPoints; i++) {
-		const r = 0.075;
+		const r = 0.1;
 		let x = 2 * Math.random() - 1;
 		let y = 2 * Math.random() - 1;
 		let z = 2 * Math.random() - 1;
@@ -248,7 +248,7 @@ function getDots(time) {
 			x = Math.sqrt(r * r - z * z) * Math.cos(theta);
 			y = Math.sqrt(r * r - z * z) * Math.sin(theta);
 		}
-		dots.push(new Matrix([[x], [y + 3.5], [z], [1]]));
+		dots.push(new Matrix([[x], [y + 1], [z], [1]]));
 	}
 
 	return [dots, colors];
