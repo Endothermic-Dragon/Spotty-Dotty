@@ -166,8 +166,8 @@ window.addEventListener("keyup", (e) => {
 });
 
 function updateCameraAngles(e) {
-	cameraData.dir -= e.movementX / 3000;
-	cameraData.tilt -= e.movementY / 3000;
+	cameraData.dir -= e.movementX / 750;
+	cameraData.tilt -= e.movementY / 750;
 	cameraData.tilt = Math.min(Math.PI / 2, cameraData.tilt);
 	cameraData.tilt = Math.max(-Math.PI / 2, cameraData.tilt);
 }
