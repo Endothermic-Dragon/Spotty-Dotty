@@ -194,6 +194,7 @@ function drawLoop(time) {
 	const dt = (time - lastTime) / 5000;
 	lastTime = time;
 
+	// WASD movement
 	cameraData.disp[0] +=
 		dt *
 		(keyData.rightLeft * Math.cos(cameraData.dir) -
@@ -202,6 +203,8 @@ function drawLoop(time) {
 		dt *
 		(keyData.frontBack * Math.cos(cameraData.dir) +
 			keyData.rightLeft * Math.sin(cameraData.dir));
+
+	// Space/Shift+Space movement
 	cameraData.disp[2] += dt * keyData.upDown;
 
 	let [dots, colors] = getDots(time);
